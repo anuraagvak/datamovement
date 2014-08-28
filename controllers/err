@@ -1,0 +1,11 @@
+Warning: $HADOOP_HOME is deprecated.
+
+14/04/16 11:15:20 WARN tool.BaseSqoopTool: Setting your password on the command-line is insecure. Consider using -P instead.
+14/04/16 11:15:20 INFO manager.MySQLManager: Preparing to use a MySQL streaming resultset.
+14/04/16 11:15:20 INFO tool.CodeGenTool: Beginning code generation
+14/04/16 11:15:20 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `login` AS t LIMIT 1
+14/04/16 11:15:20 INFO manager.SqlManager: Executing SQL statement: SELECT t.* FROM `login` AS t LIMIT 1
+14/04/16 11:15:20 INFO orm.CompilationManager: HADOOP_MAPRED_HOME is /home/hduser/hadoop
+Note: /tmp/sqoop-hduser/compile/6e4cb62c50a5a491705809b05929f4a1/login.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+14/04/16 11:15:21 INFO orm.CompilationManager: Writing jar file: /tmp/sqoop-hduser/compile/6e4cb62c50a5a491705809b05929f4a1/login.jar

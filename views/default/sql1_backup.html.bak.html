@@ -1,0 +1,119 @@
+<html><head><script src="../static/js/jquery.js"></script><script src="../static/js/sqooper.js"></script> <link rel="stylesheet" type="text/css" href="../static/css/sqooper.css">
+{{extend 'layout.html'}}
+    
+    <!DOCTYPE html>
+{{ extend 'layout.html'}}
+<html>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/EliteCircle.css">
+
+<body>
+
+<head>
+<title>EliteCircle</title>
+<script>
+                    $(document).ready(function(){
+                              $('.column').hide();
+                  $(".btn1").click(function(){
+                      
+                          var string  = '#'+$(this).attr('name');
+                      
+                      
+                          $(string).show();
+                  });
+                  $(".btn2").click(function(){
+                      
+                          var string  = '#'+$(this).attr('name');
+                      
+                   
+                      
+                          $(string).hide();
+                  });
+});
+            </script>
+    
+    
+    
+    
+</head>
+<body>
+<div id="header">
+ 
+</div>
+<div id="content-wrap">
+  <div id="content">
+    <div id="main"> <a name="TemplateInfo"></a>
+
+        <form action= 'sql' method='post' enctype='multipart/form-data'>
+
+         <fieldset><legend>Select Directory</legend>
+          {{for token in tokens:}}
+           {{if token != "":}}
+                 <input type="radio" name="targetdir" value="{{=token}}"><a href="sql1?path='{{=token}}'">{{=token}}</a><br>
+                 {{pass}}
+                 {{pass}}
+                 <input type="radio" name="targetdir" value="default">Create Default Directory with Name as TableName<br>
+                </fieldset>
+                <fieldset><legend>Select Table:</legend>
+             {{if error != "" :}}
+                        {{=error}}
+             {{pass}}
+ <!--            <script>
+                     $(document).ready(function(){
+                     $('#tb tr').click(function(){
+
+var chbx = $(this).children('td').slice(0,1).children('input');
+var v = chbx.val();
+var length = $(this).children('td').slice(1,2).length;
+if(chbx.prop('checked') && length == 0)  {
+
+      #  $(this).append('<td><input type="checkbox" name="chbx">Encrypt</td><td><input type="checkbox" name="ran">Schedule</td>')
+      #  $(this).children('td').slice(1,2).children('input').val(v);
+      #  $(this).children('td').slice(2,3).children('input').val(v);
+}
+                             if(!chbx.prop('checked')){
+                                     $(this).children('td').slice(1,2).remove()
+                                    $(this).children('td').slice(1,2).remove()
+}
+                     });
+
+                     });
+
+             </script> -->
+            <table id ="tb">
+                {{for (t,) in tables:}}
+                    <tr><td>
+                        <input type="checkbox"  name="table" value={{=t}}>{{=t}}
+                        
+                        <input type="button" name = {{=t}} class="btn1" value="Open"> 
+
+                        
+                             <div id={{=t}} class="column">
+                               
+                                {{for i in dic[t]:}}
+                               
+                                    <input type="checkbox" name="tab_columns" value={{=t}}${{=i}}>{{=i}}</br>
+                                
+                                    {{pass}}
+                                
+                                <input type="button" name={{=t}}  value = "Save" class="btn2">
+                      
+                      
+                             </div>
+                        
+                        
+                        
+                        
+                        
+                        </td>
+                       </tr>
+           {{pass}}
+            </table>
+          </fieldset>
+
+
+                <br><input type="submit" value="Transfer Data"/>
+        </form>
+           </div>
+ 
+        </body>

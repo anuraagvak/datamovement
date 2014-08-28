@@ -1,0 +1,801 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> name 'layout' is not defined"
+p3
+sS'layer'
+p4
+S'/home/hduser/web2py/applications/Hadoop/views/default/all_jobs.html'
+p5
+sS'code'
+p6
+S'response.write(\'<!DOCTYPE html>\\n\', escape=False)\nlayout.html\nresponse.write(\'\\n<html>\\n    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">\\n    <link rel="stylesheet" href="../static/css/EliteCircle.css">\\n\\n<body>\\n\\n<head>\\n<title>EliteCircle</title>\\n\\n</head>\\n<body>\\n<div id="header">\\n \\n</div>\\n<div id="content-wrap">\\n  <div id="content">\\n    <div id="main"> <a name="TemplateInfo"></a>\\n \\n         <table>\\n<tr>\\n<td>\\n\', escape=False)\nv = db_type\nresponse.write(\'\\n\\n    <legend style="width:100px;">Running</legend>\\n    \\n    </h4>\\n    \', escape=False)\nif running == ():\n    response.write(\'\\n    <h6>\\n        No current jobs...\\n    </h6>\\n    \\n    \', escape=False)\nelse:\n    response.write(\'\\n\\t<table class="table table-hover" border=1>\\n        <tr>\\n                <th>id</th>\\n                <th>From</th>\\n\\t\\t\\t\\t<th>To</th>\\n                <th>Table Name</th>\\n                <th>Time Stamp</th>\\n                \\n        \\n        </tr>\\n        \', escape=False)\n    for l in running:\n        response.write(\'\\n\\t<tr>\\n\\t\\t\\t<td>\', escape=False)\n        response.write(l[0])\n        response.write(\'</td>\\n\\t\\t\', escape=False)\n        if l[2]=="import":\n            response.write(\'\\n\\t\\t\\t<td>MySQL</td>\\n            <td>HDFS</td>\\n        \', escape=False)\n        else:\n            response.write(\'\\n\\t\\t\\t<td>HDFS</td>\\n        \\t\\t\\t<td>MySQL</td>\\n        \', escape=False)\n            pass\n        response.write(\'\\n\\n   \\t\\t\\t<td>\', escape=False)\n        response.write(l[3])\n        response.write(\'</td>\\n            <td>\', escape=False)\n        response.write(l[4])\n        response.write(\'</td>\\n        </tr>\\n        \', escape=False)\n        pass\n    response.write(\'\\n</table> \\n    \', escape=False)\n    pass\nresponse.write(\'\\n    <legend style="width:160px">\\n            \\n        Successful Jobs</legend>\\n    \\n    \\n         <div style="float:right;margin-right:300px;">\\n    \\n \\n        </div>\\n    \\n        \', escape=False)\nif L == ():\n    response.write(\'\\n    <h6>\\n        No current jobs...\\n    </h6>\\n    \\n    \', escape=False)\nelse:\n    response.write(\'\\n\\n    \\n    \\n\\t<table class="table table-hover" border=1>\\n        <tr>\\n                <th>id</th>\\n                <th>From</th>\\n\\t\\t\\t\\t<th>To</th>\\n                <th>Table Name</th>\\n                <th>Time Stamp</th>\\n                \\n        \\n        </tr>\\n        \', escape=False)\n    for l in L:\n        response.write(\'\\n\\t<tr>\\n\\t\\t\\t<td>\', escape=False)\n        response.write(l[0])\n        response.write(\'</td>\\n\\t\\t\', escape=False)\n        if l[2]=="import":\n            response.write(\'\\n\\t\\t\\t<td>MySQL</td>\\n            <td>HDFS</td>\\n        \', escape=False)\n        else:\n            response.write(\'\\n\\t\\t\\t<td>HDFS</td>\\n        \\t\\t\\t<td>MySQL</td>\\n        \', escape=False)\n            pass\n        response.write(\'\\n\\n   \\t\\t\\t<td>\', escape=False)\n        response.write(l[3])\n        response.write(\'</td>\\n            <td>\', escape=False)\n        response.write(l[4])\n        response.write(\'</td>\\n        </tr>\\n        \', escape=False)\n        pass\n    response.write(\'\\n</table> \\n    \', escape=False)\n    pass\nresponse.write(\'\\n    <h4>\\n        Failed Jobs:\\n    </h4>\\n        \', escape=False)\nif failed == ():\n    response.write(\'\\n    <h6>\\n        No current jobs...\\n    </h6>\\n    \\n    \', escape=False)\nelse:\n    response.write(\'\\n\\n    \\n    \\t<table class="table table-hover" border=1>\\n        <tr>\\n                <th>id</th>\\n                <th>From</th>\\n\\t\\t\\t\\t<th>To</th>\\n                <th>Table Name</th>\\n                <th>Time Stamp</th>\\n                \\n        \\n        </tr>\\n        \', escape=False)\n    for l in failed:\n        response.write(\'\\n\\t<tr>\\n\\t\\t\\t<td>\', escape=False)\n        response.write(l[0])\n        response.write(\'</td>\\n\\t\\t\', escape=False)\n        if l[2]=="import":\n            response.write(\'\\n\\t\\t\\t<td>MySQL</td>\\n            <td>HDFS</td>\\n        \', escape=False)\n        else:\n            response.write(\'\\n\\t\\t\\t<td>HDFS</td>\\n        \\t\\t\\t<td>MySQL</td>\\n        \', escape=False)\n            pass\n        response.write(\'\\n\\n   \\t\\t\\t<td>\', escape=False)\n        response.write(l[3])\n        response.write(\'</td>\\n            <td>\', escape=False)\n        response.write(l[4])\n        response.write(\'</td>\\n        </tr>\\n        \', escape=False)\n        pass\n    response.write(\'\\n</table>\\n    \', escape=False)\n    pass\nresponse.write(\'\\n    </br></br>\\n</td></tr></table>\\n    \\n        \\n         \\n      <br />\\n    </div>\\n    <div id="sidebar">\\n    \\n   <h1>Select the Data Source</h1>\\n    <form action="main.html">\\n      \\n        <select class="form-control" name="dbtype">\\n            <option value="sql"> MySQL </option>\\n            <option value="hdfs"> HDFS </option>\\n        </select>\\n        <button style="margin-top:20px;" class="btn btn-info" type="submit">Create New Job</button>\\n    </form>\\n \\n    </div>\\n  </div>\\n</div>\\n<div id="footer">\\n\\n</div>\\n</body>\\n</html>\\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n    \\n   \\n   \\n</body>\\n</html>\\n\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.NameError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.NameError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.NameError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.NameError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.NameError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.NameError object>'
+p23
+sS'args'
+p24
+S'("name \'layout\' is not defined",)'
+p25
+sS'__reduce__'
+p26
+S'<built-in method __reduce__ of exceptions.NameError object>'
+p27
+sS'__str__'
+p28
+S"<method-wrapper '__str__' of exceptions.NameError object>"
+p29
+sS'__format__'
+p30
+S'<built-in method __format__ of exceptions.NameError object>'
+p31
+sS'__getattribute__'
+p32
+S"<method-wrapper '__getattribute__' of exceptions.NameError object>"
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.NameError'>"
+p35
+sS'__unicode__'
+p36
+S'<built-in method __unicode__ of exceptions.NameError object>'
+p37
+sS'__delattr__'
+p38
+S"<method-wrapper '__delattr__' of exceptions.NameError object>"
+p39
+sS'__subclasshook__'
+p40
+S'<built-in method __subclasshook__ of type object>'
+p41
+sS'__repr__'
+p42
+S"<method-wrapper '__repr__' of exceptions.NameError object>"
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.NameError object>'
+p47
+sS'__doc__'
+p48
+S"'Name not found globally.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.NameError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"name 'layout' is not defined"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xa4Z\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>Hadoop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-78027492-5709-488f-a270-787630de8a18<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hadoop</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-e9207287-5150-4ffa-97b9-dc6f2cc7b4d5<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-e9207287-5150-4ffa-97b9-dc6f2cc7b4d5; session_id_hadoop=127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e; session_id_admin=127.0.0.1-78027492-5709-488f-a270-787630de8a18</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/Hadoop/default/sql1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/Hadoop/default/all_jobs</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>60374</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>Dell-XPS</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/hduser/web2py/applications/admin/&#x27;, &#x27;/home/hduser/web2py/applications/welcome/&#x27;, &#x27;/home/hduser/web2py/applications/Hadoop/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x189e830: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Dell-XPS&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: True, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/hduser/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;1&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-e9207287-5150-4ffa-97b9-dc6f2cc7b4d5; session_id_hadoop=127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e; session_id_admin=127.0.0.1-78027492-5709-488f-a270-787630de8a18</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/Hadoop/default/sql1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.146 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>Dell-XPS</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/Hadoop/default/all_jobs</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>60374</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/Hadoop/default/all_jobs</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>Dell-XPS</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.8.2-stable+timestamp.2013.11.28.13.54.07</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f12480f6270&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x18396d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f121c25d5d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f12480f6270&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x18396d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f121c25d5d0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py/applications/Hadoop/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>all_jobs</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/hduser/web2py/applications/admin/&#x27;, &#x27;/home/hduser/web2py/applications/welcome/&#x27;, &#x27;/home/hduser/web2py/applications/Hadoop/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x189e830: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Dell-XPS&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: True, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/hduser/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;1&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>Dell-XPS</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.8.2-stable+timestamp.2013.11.28.13.54.07</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 3, 9, 23, 37, 42, 10769)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/Hadoop/default/all_jobs</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 3, 9, 18, 7, 42, 12249)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">uuid</td><td style="vertical-align:top;">:</td><td><div>Hadoop/127.0.0.1.2014-03-09.23-37-42.28bdda97-b479-4335-8f33-b78b7258f493</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7f123c38de90&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'/home/hduser/web2py/gluon/restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 0x7f122c2efa30, file "/...ions/Hadoop/views/default/all_jobs.html", line 1>'
+p69
+ssS'lnum'
+p70
+I217
+sS'lines'
+p71
+(dp72
+I212
+S'    try:'
+p73
+sI213
+S'        if isinstance(code, types.CodeType):'
+p74
+sI214
+S'            ccode = code'
+p75
+sI215
+S'        else:'
+p76
+sI216
+S'            ccode = compile2(code, layer)'
+p77
+sI217
+S'        exec ccode in environment'
+p78
+sI218
+S'    except HTTP:'
+p79
+sI219
+S'        raise'
+p80
+sI220
+S'    except RestrictedError:'
+p81
+sI221
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p82
+ssS'call'
+p83
+S'(code=r"response.write(\'<!DOCTYPE html>\\n\', escape=False...   \\n   \\n   \\n</body>\\n</html>\\n\', escape=False)", environment={\'A\': <class \'gluon.html.A\'>, \'ANY_OF\': <class \'gluon.validators.ANY_OF\'>, \'Auth\': <class \'gluon.tools.Auth\'>, \'B\': <class \'gluon.html.B\'>, \'BEAUTIFY\': <class \'gluon.html.BEAUTIFY\'>, \'BODY\': <class \'gluon.html.BODY\'>, \'BR\': <class \'gluon.html.BR\'>, \'BUTTON\': <class \'gluon.html.BUTTON\'>, \'CAT\': <class \'gluon.html.CAT\'>, \'CENTER\': <class \'gluon.html.CENTER\'>, ...}, layer=\'/home/hduser/web2py/applications/Hadoop/views/default/all_jobs.html\')'
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'/home/hduser/web2py/applications/Hadoop/views/default/all_jobs.html'
+p88
+sg64
+(dp89
+S'layout'
+p90
+S'undefined'
+p91
+ssg70
+I2
+sg71
+(dp92
+I1
+S"response.write('<!DOCTYPE html>\\n', escape=False)"
+p93
+sI2
+S'layout.html'
+p94
+sI3
+S'response.write(\'\\n<html>\\n    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">\\n    <link rel="stylesheet" href="../static/css/EliteCircle.css">\\n\\n<body>\\n\\n<head>\\n<title>EliteCircle</title>\\n\\n</head>\\n<body>\\n<div id="header">\\n \\n</div>\\n<div id="content-wrap">\\n  <div id="content">\\n    <div id="main"> <a name="TemplateInfo"></a>\\n \\n         <table>\\n<tr>\\n<td>\\n\', escape=False)'
+p95
+sI4
+S'v = db_type'
+p96
+sI5
+S'response.write(\'\\n\\n    <legend style="width:100px;">Running</legend>\\n    \\n    </h4>\\n    \', escape=False)'
+p97
+sI6
+S'if running == ():'
+p98
+sI7
+S"    response.write('\\n    <h6>\\n        No current jobs...\\n    </h6>\\n    \\n    ', escape=False)"
+p99
+sI8
+S'else:'
+p100
+sI9
+S'    response.write(\'\\n\\t<table class="table table-hover" border=1>\\n        <tr>\\n                <th>id</th>\\n                <th>From</th>\\n\\t\\t\\t\\t<th>To</th>\\n                <th>Table Name</th>\\n                <th>Time Stamp</th>\\n                \\n        \\n        </tr>\\n        \', escape=False)'
+p101
+sI10
+S'    for l in running:'
+p102
+sI11
+S"        response.write('\\n\\t<tr>\\n\\t\\t\\t<td>', escape=False)"
+p103
+sI12
+S'        response.write(l[0])'
+p104
+ssg83
+S'()'
+p105
+sg85
+S'<module>'
+p106
+sasS'pyver'
+p107
+S'Python 2.7.3: /usr/bin/python (prefix: /usr)'
+p108
+sS'session'
+p109
+g57
+(S's\xdd\x08\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>20466934-1561-4c86-9bfc-7243ab336295</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 3, 9, 23, 36, 7, 396069)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remember</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>vamsi1899@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">first_name</td><td style="vertical-align:top;">:</td><td><div>a</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>1L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_name</td><td style="vertical-align:top;">:</td><td><div>b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">1</td><td style="vertical-align:top;">:</td><td><div>user_1</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr></table></div>'
+tRp110
+sS'etype'
+p111
+S"<type 'exceptions.NameError'>"
+p112
+sS'date'
+p113
+S'Sun Mar  9 23:37:42 2014'
+p114
+sS'response'
+p115
+g57
+(S's\xaf1\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7f12240fe928&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_hadoop</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/Hadoop/default/index</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div><span style="color:yellow">web2py</span></div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>My Sites</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/site</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>This App</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/design/Hadoop</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Controller&#x27;&gt;, False, &#x27;/admin/default/edit/Hadoop/controllers/default.py&#x27;), (&lt;lazyT &#x27;View&#x27;&gt;, False, &#x27;/admin/default/edit/Hadoop/views/default/all_jobs.html&#x27;), (&lt;lazyT &#x27;Layout&#x27;&gt;, False, &#x27;/admin/default/edit/Hadoop/views/layout.html&#x27;), (&lt;lazyT &#x27;Stylesheet&#x27;&gt;, False, &#x27;/admin/default/edit/Hadoop/static/css/web2py.css&#x27;), (&lt;lazyT &#x27;DB Model&#x27;&gt;, False, &#x27;/admin/default/edit/Hadoop/models/db.py&#x27;), (&lt;lazyT &#x27;Menu Model&#x27;&gt;, False, &#x27;/admin/default/edit/Hadoop/models/menu.py&#x27;), (&lt;lazyT &#x27;Database&#x27;&gt;, False, &#x27;/Hadoop/appadmin/index&#x27;), (&lt;lazyT &#x27;Errors&#x27;&gt;, False, &#x27;/admin/default/errors/Hadoop&#x27;), (&lt;lazyT &#x27;About&#x27;&gt;, False, &#x27;/admin/default/about/Hadoop&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>web2py.com</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Download&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/download&#x27;), (&lt;lazyT &#x27;Support&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/support&#x27;), (&lt;lazyT &#x27;Demo&#x27;&gt;, False, &#x27;http://web2py.com/demo_admin&#x27;), (&lt;lazyT &#x27;Quick Examples&#x27;&gt;, False, &#x27;http://web2py.com/examples/default/examples&#x27;), (&lt;lazyT &#x27;FAQ&#x27;&gt;, False, &#x27;http://web2py.com/AlterEgo&#x27;), (&lt;lazyT &#x27;Videos&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/videos/&#x27;), (&lt;lazyT &#x27;Free Applications&#x27;&gt;, False, &#x27;http://web2py.com/appliances&#x27;), (&lt;lazyT &#x27;Plugins&#x27;&gt;, False, &#x27;http://web2py.com/plugins&#x27;), (&lt;lazyT &#x27;Layouts&#x27;&gt;, False, &#x27;http://web2py.com/layouts&#x27;), (&lt;lazyT &#x27;Recipes&#x27;&gt;, False, &#x27;http://web2pyslices.com/&#x27;), (&lt;lazyT &#x27;Semantic&#x27;&gt;, False, &#x27;http://web2py.com/semantic&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Documentation</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Preface&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/00&#x27;), (&lt;lazyT &#x27;Introduction&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/01&#x27;), (&lt;lazyT &#x27;Python&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/02&#x27;), (&lt;lazyT &#x27;Overview&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/03&#x27;), (&lt;lazyT &#x27;The Core&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/04&#x27;), (&lt;lazyT &#x27;The Views&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/05&#x27;), (&lt;lazyT &#x27;Database&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/06&#x27;), (&lt;lazyT &#x27;Forms and Validators&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/07&#x27;), (&lt;lazyT &#x27;Email and SMS&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/08&#x27;), (&lt;lazyT &#x27;Access Control&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/09&#x27;), (&lt;lazyT &#x27;Services&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/10&#x27;), (&lt;lazyT &#x27;Ajax Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/11&#x27;), (&lt;lazyT &#x27;Components and Plugins&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/12&#x27;), (&lt;lazyT &#x27;Deployment Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/13&#x27;), (&lt;lazyT &#x27;Other Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/14&#x27;), (&lt;lazyT &#x27;Buy this book&#x27;&gt;, False, &#x27;http://stores.lulu.com/web2py&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Community</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Groups&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/usergroups&#x27;), (&lt;lazyT &#x27;Twitter&#x27;&gt;, False, &#x27;http://twitter.com/web2py&#x27;), (&lt;lazyT &#x27;Live Chat&#x27;&gt;, False, &#x27;http://webchat.freenode.net/?channels=web2py&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Plugins</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div>[(&#x27;plugin_wiki&#x27;, False, &#x27;http://web2py.com/examples/default/download&#x27;), (&lt;lazyT &#x27;Other Plugins&#x27;&gt;, False, &#x27;http://web2py.com/plugins&#x27;), (&lt;lazyT &#x27;Layout Plugins&#x27;&gt;, False, &#x27;http://web2py.com/layouts&#x27;)]</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">copyright</td><td style="vertical-align:top;">:</td><td><div>Copyright 2011</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/all_jobs/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_hadoop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/hduser/web2py/applications/Hadoop/sessions/127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e&#x27;, mode &#x27;rb+&#x27; at 0x7f123c7eddb0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py/applications/Hadoop/sessions/127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>14c0d3b0dea71bdb53395f39244e982d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-33e2734d-a8f6-41aa-93fb-a52db5cd0b6e</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_hadoop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>Hadoop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div>customize me!</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Hadoop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/all_jobs.html</div></td></tr></table></div>'
+tRp116
+sS'locals'
+p117
+(dp118
+S'Service'
+p119
+S"<class 'gluon.tools.Service'>"
+p120
+sS'OBJECT'
+p121
+S"<class 'gluon.html.OBJECT'>"
+p122
+sS'SQLDB'
+p123
+S"<class 'gluon.dal.DAL'>"
+p124
+sg109
+S"<Storage {'_auth_next': None, 'flash': None, 'au...version': '33.0.1750.146', 'name': 'Chrome'}>}>}>"
+p125
+sS'LINK'
+p126
+S"<class 'gluon.html.LINK'>"
+p127
+sS'BR'
+p128
+S"<class 'gluon.html.BR'>"
+p129
+sS'local_import'
+p130
+S'<function <lambda>>'
+p131
+sS'OPTGROUP'
+p132
+S"<class 'gluon.html.OPTGROUP'>"
+p133
+sS'__package__'
+p134
+S'None'
+p135
+sS'PRE'
+p136
+S"<class 'gluon.html.PRE'>"
+p137
+sS'IS_INT_IN_RANGE'
+p138
+S"<class 'gluon.validators.IS_INT_IN_RANGE'>"
+p139
+sS'IS_LOWER'
+p140
+S"<class 'gluon.validators.IS_LOWER'>"
+p141
+sS'IS_STRONG'
+p142
+S"<class 'gluon.validators.IS_STRONG'>"
+p143
+sS'cache'
+p144
+S'<gluon.cache.Cache object>'
+p145
+sS'IS_IN_DB'
+p146
+S"<class 'gluon.validators.IS_IN_DB'>"
+p147
+sS'failed'
+p148
+S"((12L, 1582L, 'import', 'inputs', datetime.datetime(2014, 3, 9, 2, 26, 56), 130L, 1L), (13L, 1623L, 'import', 'login', datetime.datetime(2014, 3, 9, 2, 26, 56), 130L, 1L), (16L, 10419L, 'export', 'workflow', datetime.datetime(2014, 3, 9, 17, 20, 21), 1L, 1L))"
+p149
+sS'TAG'
+p150
+S'<gluon.html.__TAG__ object>'
+p151
+sS'SQLField'
+p152
+S"<class 'gluon.dal.Field'>"
+p153
+sS'mail'
+p154
+S'<gluon.tools.Mail object>'
+p155
+sS'BODY'
+p156
+S"<class 'gluon.html.BODY'>"
+p157
+sS'IS_DATE_IN_RANGE'
+p158
+S"<class 'gluon.validators.IS_DATE_IN_RANGE'>"
+p159
+sS'IFRAME'
+p160
+S"<class 'gluon.html.IFRAME'>"
+p161
+sS'URL'
+p162
+S'<function URL>'
+p163
+sS'__file__'
+p164
+S"'/home/hduser/web2py/applications/Hadoop/views/default/all_jobs.html'"
+p165
+sS'db'
+p166
+S'<DAL uri="sqlite://storage.sqlite">'
+p167
+sS'L'
+S"((1L, 28509L, 'import', 'login1', datetime.datetime(2014, 3, 9, 2, 24, 19), 0L, 1L), (2L, 29123L, 'import', 'all_databases', datetime.datetime(2014, 3, 9, 2, 25, 27), 0L, 1L), (3L, 29172L, 'import', 'contract', datetime.datetime(2014, 3, 9, 2, 25, 28), 0L, 1L), (4L, 29182L, 'import', 'inputs', datetime.datetime(2014, 3, 9, 2, 25, 34), 0L, 1L), (5L, 29184L, 'import', 'login', datetime.datetime(2014, 3, 9, 2, 25, 53), 0L, 1L), (6L, 29186L, 'import', 'login1', datetime.datetime(2014, 3, 9, 2, 26, 5), 0L, 1L), (7L, 29188L, 'import', 'org1', datetime.datetime(2014, 3, 9, 2, 26, 8), 0L, 1L), (8L, 29190L, 'import', 'organization', datetime.datetime(2014, 3, 9, 2, 26, 11), 0L, 1L), (9L, 29192L, 'import', 'transition', datetime.datetime(2014, 3, 9, 2, 26, 16), 0L, 1L), (10L, 29195L, 'import', 'wf', datetime.datetime(2014, 3, 9, 2, 26, 25), 0L, 1L), (11L, 29197L, 'import', 'workflow', datetime.datetime(2014, 3, 9, 2, 26, 32), 0L, 1L), (14L, 2450L, 'import', 'all_databases', datetime.datetime(2014, 3, 9, 2, 53, 35), 0L, 1L), (15L, 2495L, 'import', 'contract', datetime.datetime(2014, 3, 9, 2, 53, 36), 0L, 1L), (17L, 17975L, 'export', 'login2', datetime.datetime(2014, 3, 9, 17, 46, 46), 0L, 1L), (18L, 6053L, 'import', 'contract', datetime.datetime(2014, 3, 9, 20, 11, 8), 0L, 1L), (19L, 4847L, 'import', 'login1', datetime.datetime(2014, 3, 9, 22, 59, 47), 0L, 1L), (20L, 4862L, 'import', 'login2', datetime.datetime(2014, 3, 9, 23, 0), 0L, 1L))"
+p168
+sS'auth'
+p169
+S'<gluon.tools.Auth object>'
+p170
+sS'P'
+S"<class 'gluon.html.P'>"
+p171
+sS'TFOOT'
+p172
+S"<class 'gluon.html.TFOOT'>"
+p173
+sS'XHTML'
+p174
+S"<class 'gluon.html.XHTML'>"
+p175
+sS'ON'
+p176
+S'True'
+p177
+sS'OL'
+p178
+S"<class 'gluon.html.OL'>"
+p179
+sS'TEXTAREA'
+p180
+S"<class 'gluon.html.TEXTAREA'>"
+p181
+sS'MENU'
+p182
+S"<class 'gluon.html.MENU'>"
+p183
+sS'db_type'
+p184
+S"'sql'"
+p185
+sS'IS_IMAGE'
+p186
+S"<class 'gluon.validators.IS_IMAGE'>"
+p187
+sS'EM'
+p188
+S"<class 'gluon.html.EM'>"
+p189
+sS'CODE'
+p190
+S"<class 'gluon.html.CODE'>"
+p191
+sS'HTTP'
+p192
+S"<class 'gluon.http.HTTP'>"
+p193
+sS'HR'
+p194
+S"<class 'gluon.html.HR'>"
+p195
+sS'IS_DATETIME'
+p196
+S"<class 'gluon.validators.IS_DATETIME'>"
+p197
+sS'STYLE'
+p198
+S"<class 'gluon.html.STYLE'>"
+p199
+sS'LABEL'
+p200
+S"<class 'gluon.html.LABEL'>"
+p201
+sS'CLEANUP'
+p202
+S"<class 'gluon.validators.CLEANUP'>"
+p203
+sS'plugins'
+p204
+S'<gluon.tools.PluginManager object>'
+p205
+sS'SELECT'
+p206
+S"<class 'gluon.html.SELECT'>"
+p207
+sS'use_janrain'
+p208
+S'<function use_janrain>'
+p209
+sS'CENTER'
+p210
+S"<class 'gluon.html.CENTER'>"
+p211
+sS'prettydate'
+p212
+S'<function prettydate>'
+p213
+sS'Crud'
+p214
+S"<class 'gluon.tools.Crud'>"
+p215
+sS'Auth'
+p216
+S"<class 'gluon.tools.Auth'>"
+p217
+sS'__builtins__'
+p218
+S"{'ArithmeticError': <type 'exceptions.ArithmeticError'>, 'AssertionError': <type 'exceptions.AssertionError'>, 'AttributeError': <type 'exceptions.AttributeError'>, 'BaseException': <type 'exceptions.BaseException'>, 'BufferError': <type 'exceptions.BufferError'>, 'BytesWarning': <type 'exceptions.BytesWarning'>, 'DeprecationWarning': <type 'exceptions.DeprecationWarning'>, 'EOFError': <type 'exceptions.EOFError'>, 'Ellipsis': Ellipsis, 'EnvironmentError': <type 'exceptions.EnvironmentError'>, ...}"
+p219
+sS'HTML'
+p220
+S"<class 'gluon.html.HTML'>"
+p221
+sS'SQLFORM'
+p222
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p223
+sS'LOAD'
+p224
+S'<function LOAD>'
+p225
+sS'redirect'
+p226
+S'<function redirect>'
+p227
+sS'FIELDSET'
+p228
+S"<class 'gluon.html.FIELDSET'>"
+p229
+sS'IS_EQUAL_TO'
+p230
+S"<class 'gluon.validators.IS_EQUAL_TO'>"
+p231
+sS'embed64'
+p232
+S'<function embed64>'
+p233
+sS'IS_LIST_OF'
+p234
+S"<class 'gluon.validators.IS_LIST_OF'>"
+p235
+sS'INPUT'
+p236
+S"<class 'gluon.html.INPUT'>"
+p237
+sS'EMBED'
+p238
+S"<class 'gluon.html.EMBED'>"
+p239
+sS'_'
+S'<function _>'
+p240
+sS'H2'
+p241
+S"<class 'gluon.html.H2'>"
+p242
+sS'H3'
+p243
+S"<class 'gluon.html.H3'>"
+p244
+sS'BUTTON'
+p245
+S"<class 'gluon.html.BUTTON'>"
+p246
+sS'H1'
+p247
+S"<class 'gluon.html.H1'>"
+p248
+sS'H6'
+p249
+S"<class 'gluon.html.H6'>"
+p250
+sS'H4'
+p251
+S"<class 'gluon.html.H4'>"
+p252
+sS'H5'
+p253
+S"<class 'gluon.html.H5'>"
+p254
+sS'UL'
+p255
+S"<class 'gluon.html.UL'>"
+p256
+sS'IS_UPPER'
+p257
+S"<class 'gluon.validators.IS_UPPER'>"
+p258
+sS'xmlescape'
+p259
+S'<function xmlescape>'
+p260
+sS'IS_TIME'
+p261
+S"<class 'gluon.validators.IS_TIME'>"
+p262
+sS'OPTION'
+p263
+S"<class 'gluon.html.OPTION'>"
+p264
+sS'TITLE'
+p265
+S"<class 'gluon.html.TITLE'>"
+p266
+sS'CRYPT'
+p267
+S"<class 'gluon.validators.CRYPT'>"
+p268
+sS'IS_EMPTY_OR'
+p269
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p270
+sS'MARKMIN'
+p271
+S"<class 'gluon.html.MARKMIN'>"
+p272
+sS'__name__'
+p273
+S"'__restricted__'"
+p274
+sS'STRONG'
+p275
+S"<class 'gluon.html.STRONG'>"
+p276
+sS'COL'
+p277
+S"<class 'gluon.html.COL'>"
+p278
+sS'service'
+p279
+S'<gluon.tools.Service object>'
+p280
+sS'SCRIPT'
+p281
+S"<class 'gluon.html.SCRIPT'>"
+p282
+sS'TABLE'
+p283
+S"<class 'gluon.html.TABLE'>"
+p284
+sS'IS_IPV4'
+p285
+S"<class 'gluon.validators.IS_IPV4'>"
+p286
+sS'IS_LENGTH'
+p287
+S"<class 'gluon.validators.IS_LENGTH'>"
+p288
+sS'IS_IPV6'
+p289
+S"<class 'gluon.validators.IS_IPV6'>"
+p290
+sS'XML'
+p291
+S"<class 'gluon.html.XML'>"
+p292
+sS'B'
+S"<class 'gluon.html.B'>"
+p293
+sS'IMG'
+p294
+S"<class 'gluon.html.IMG'>"
+p295
+sS'SQLTABLE'
+p296
+S"<class 'gluon.sqlhtml.SQLTABLE'>"
+p297
+sS'IS_MATCH'
+p298
+S"<class 'gluon.validators.IS_MATCH'>"
+p299
+sS'IS_ALPHANUMERIC'
+p300
+S"<class 'gluon.validators.IS_ALPHANUMERIC'>"
+p301
+sS'SPAN'
+p302
+S"<class 'gluon.html.SPAN'>"
+p303
+sS'IS_JSON'
+p304
+S"<class 'gluon.validators.IS_JSON'>"
+p305
+sS'IS_IPADDRESS'
+p306
+S"<class 'gluon.validators.IS_IPADDRESS'>"
+p307
+sS'IS_SLUG'
+p308
+S"<class 'gluon.validators.IS_SLUG'>"
+p309
+sS'BEAUTIFY'
+p310
+S"<class 'gluon.html.BEAUTIFY'>"
+p311
+sS'META'
+p312
+S"<class 'gluon.html.META'>"
+p313
+sS'IS_DATE'
+p314
+S"<class 'gluon.validators.IS_DATE'>"
+p315
+sS'IS_EMAIL'
+p316
+S"<class 'gluon.validators.IS_EMAIL'>"
+p317
+sS'IS_NOT_EMPTY'
+p318
+S"<class 'gluon.validators.IS_NOT_EMPTY'>"
+p319
+sS'IS_FLOAT_IN_RANGE'
+p320
+S"<class 'gluon.validators.IS_FLOAT_IN_RANGE'>"
+p321
+sS'TBODY'
+p322
+S"<class 'gluon.html.TBODY'>"
+p323
+sS'CAT'
+p324
+S"<class 'gluon.html.CAT'>"
+p325
+sS'Field'
+p326
+S"<class 'gluon.dal.Field'>"
+p327
+sS'IS_LIST_OF_EMAILS'
+p328
+S"<class 'gluon.validators.IS_LIST_OF_EMAILS'>"
+p329
+sS'DIV'
+p330
+S"<class 'gluon.html.DIV'>"
+p331
+sS'LEGEND'
+p332
+S"<class 'gluon.html.LEGEND'>"
+p333
+sS'COLGROUP'
+p334
+S"<class 'gluon.html.COLGROUP'>"
+p335
+sS'DAL'
+p336
+S"<class 'gluon.dal.DAL'>"
+p337
+sS'TT'
+p338
+S"<class 'gluon.html.TT'>"
+p339
+sS'TR'
+p340
+S"<class 'gluon.html.TR'>"
+p341
+sS'LI'
+p342
+S"<class 'gluon.html.LI'>"
+p343
+sS'TH'
+p344
+S"<class 'gluon.html.TH'>"
+p345
+sS'TD'
+p346
+S"<class 'gluon.html.TD'>"
+p347
+sS'PluginManager'
+p348
+S"<class 'gluon.tools.PluginManager'>"
+p349
+sS'IS_URL'
+p350
+S"<class 'gluon.validators.IS_URL'>"
+p351
+sS'A'
+S"<class 'gluon.html.A'>"
+p352
+sS'HEAD'
+p353
+S"<class 'gluon.html.HEAD'>"
+p354
+sS'IS_DATETIME_IN_RANGE'
+p355
+S"<class 'gluon.validators.IS_DATETIME_IN_RANGE'>"
+p356
+sS'FORM'
+p357
+S"<class 'gluon.html.FORM'>"
+p358
+sS'I'
+S"<class 'gluon.html.I'>"
+p359
+sS'crud'
+p360
+S'<gluon.tools.Crud object>'
+p361
+sS'IS_NOT_IN_DB'
+p362
+S"<class 'gluon.validators.IS_NOT_IN_DB'>"
+p363
+sS'running'
+p364
+S'()'
+p365
+sg115
+S"<Storage {'body': <cStringIO.StringO object at 0...x7f122c2d25f0>, 'view': 'default/all_jobs.html'}>"
+p366
+sS'THEAD'
+p367
+S"<class 'gluon.html.THEAD'>"
+p368
+sS'ANY_OF'
+p369
+S"<class 'gluon.validators.ANY_OF'>"
+p370
+sS'IS_NULL_OR'
+p371
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p372
+sg56
+S"<Storage {'_vars': None, 'function': 'all_jobs',...er': '/home/hduser/web2py/applications/Hadoop/'}>"
+p373
+sS'IS_EXPR'
+p374
+S"<class 'gluon.validators.IS_EXPR'>"
+p375
+sS'T'
+S'<gluon.languages.translator object>'
+p376
+sS'IS_IN_SET'
+p377
+S"<class 'gluon.validators.IS_IN_SET'>"
+p378
+sS'IS_UPLOAD_FILENAME'
+p379
+S"<class 'gluon.validators.IS_UPLOAD_FILENAME'>"
+p380
+sS'IS_DECIMAL_IN_RANGE'
+p381
+S"<class 'gluon.validators.IS_DECIMAL_IN_RANGE'>"
+p382
+sssS'traceback'
+p383
+S'Traceback (most recent call last):\n  File "/home/hduser/web2py/gluon/restricted.py", line 217, in restricted\n    exec ccode in environment\n  File "/home/hduser/web2py/applications/Hadoop/views/default/all_jobs.html", line 2, in <module>\n    {{layout.html}}\nNameError: name \'layout\' is not defined\n'
+p384
+s.

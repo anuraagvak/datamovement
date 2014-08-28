@@ -1,0 +1,4 @@
+{{extend 'layout.html'}}
+<h1>This is the action.html template</h1>
+{{    for i in request.post_vars:}}
+{{        print i}}

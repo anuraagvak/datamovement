@@ -1,0 +1,105 @@
+<html><head><script src="../static/js/jquery.js"></script><script src="../static/js/sqooper.js"></script> <link rel="stylesheet" type="text/css" href="../static/css/sqooper.css">
+</head>
+<body>
+<h3>{{=test['path']}}</h3>
+<form action= 'action' method= 'post' enctype='multipart/form-data'>
+<fieldset><legend>Select Directory</legend>
+{{for token in tokens:}}
+{{if token != "":}}
+    <input type="radio" name="directory" value="{{=token}}"><a href="main?path='{{=token}}'">{{=token}}</a><br>
+{{pass}}
+{{pass}}
+<input type="radio" name="directory" value="default">Create Default Directory with Name as TableName (Works only for Import)<br>
+</fieldset>
+<fieldset><legend>Select Table:</legend>
+{{if error != "":}}
+ {{=error}}
+ {{pass}}
+{{for (t,) in tables:}}
+    <input type="radio" name="table" value= {{=t}}>{{=t}}<br>
+{{pass}}
+<!-- $con=mysqli_connect("localhost","root","","hadoop");
+if (mysqli_connect_errno($con))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+ $query="show tables";
+ $result = mysqli_query($con,$query);
+ while($row=mysqli_fetch_array($result)){
+        echo '<input type="radio" name="table" value='.$row[0].'>'.$row[0].'<br>';
+ }> 
+  -->
+</fieldset></br>
+<!--start 1-->
+<div class="expandable-panel" id="cp-1" align="left">
+    <div class="expandable-panel-heading">
+        <h2>Common Advanced Options <span class="icon-close-open"></span></h2>
+    </div>
+    <div class="expandable-panel-content">
+        <br/>
+        <fieldset><legend>Connection details for database:</legend>
+            Ip Address: <input type="text" name="machine" value="localhost" size=15>
+            Database name: <input type="text" name="database_name" value="hadoop" size=15>
+            Username: <input type="text" name="db_username" value="root" size=15>
+            Password: <input type="text" name="password" size=15>
+            Table <input type="text" name="mytable" value="login" size=15>
+        </fieldset>
+        <br/>
+        <input type="checkbox" name="parallel1" value="Yes">Choose No of Parallel tasks..
+           <select name="parallel">
+           {{for i in range(5,22):}}
+            <option value="{{=i}}">{{=i}}</option>
+            {{pass}}
+           </select><br/><br/>
+        <input type="checkbox" name="userconfig" value="yes">Provide Consolidating Configuration Settings:</br>
+        <fieldset><legend>Choose Alternative:</legend>
+          Using Text Field: <input type="radio" name="config_option" value="text">
+              <textarea rows="3" cols="60" name="configtext"></textarea><br/>
+          Using Config File: <input type="radio" name="config_option" value="file">
+          <input type="file" name="file" id="file"><br/>
+        </fieldset></br>
+     <br/>
+     </div>
+</div>
+<!-- second -->
+<input type="radio" name="op" value="export">Export from HDFS to RDBMS<br/>
+<div class="expandable-panel" id="cp-2"><div class="expandable-panel-heading"><h2>Export Advanced Options<span class="icon-close-open"></span></h2></div><div class="expandable-panel-content">
+<br><fieldset><legend>Decryption Settings:</legend>
+    <input type="checkbox" name="decrypt" value="yes">Use Decryption<br/>
+    Decryption Key (16 characters i.e. 128 bits AES key):<input type="password" name="deckey" > <br>
+    Specify Columns to be decrypted:<input type="text" name="decrypt_columns"  value=""><br/>
+     </fieldset><br>
+    Specify Source directory (Optional): <input type="text" name="sourcedir"> <br/>      
+     <input type="checkbox" name="update" value="yes">Update using reference column: '.'<input type="text" name="refcol" value="id"> <br/>
+     <br/>
+ </div></div>
+<!-- third -->
+<input type="radio" name="op" value="import">Import from RDBMS to HDFS<br/>
+<div class="expandable-panel" id="cp-2"><div class="expandable-panel-heading"><h2>Import Advanced Options<span class="icon-close-open"></span></h2></div><div class="expandable-panel-content">
+<fieldset><legend>Import:</legend>
+<input type="checkbox" name="delete" value="--delete-target-dir">Delete target dir<br>
+<input type="radio" name="filetype" value="--as-avrodatafile">As a Avrodata file<br>
+<input type="radio" name="filetype" value="--as-sequencefile">As a Sequence file<br>
+<input type="checkbox" name="importall" value="importall">Import All tables<br>
+<br><fieldset><legend>Encryption:</legend>
+<input type="checkbox" name="encrypt" value="yes">Encrypt<br>
+key:<input type="password" name="enckey" ><br>
+Specify Particular columns to be encrypted<input type="text" name="encrypt_columns" value="username,password"><br/>
+</fieldset><br>
+<input type="text" name="where"> Specify where condition like id = 2 <br/>
+<input type="text" name="targetdir">Specify target dir <br/>
+<input type="text" name="columns" value="username,password">Specify Particular columns <br/><br/>
+<fieldset><legend>Delimiters:</legend>
+<input type="text" name="field_delim">Field Delimiter <br/>
+<input type="text" name="line_delim">Line Delimiter <br/>
+<input type="radio" name="enclosed" value="--optionally-enclosed-by">Optionally enclosed by quotes<br>
+<input type="radio" name="enclosed" value="--enclosed-by">Enclosed by quotes<br>
+<input type="text" name="enclosingchar">: Enclosing char<br/>
+</fieldset>
+</fieldset>
+
+</div></div>
+<!-- end of 3 -->
+<br/><input type="submit" value="Transfer Data"/></form>
+
+</div></body></html>

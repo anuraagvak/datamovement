@@ -1,0 +1,16 @@
+//public String mask(final String text){
+//	mask_strings.put("root", "mama");
+//	mask_strings.put("anuraag", "banfrog");
+	Map<String, String> mask_strings = new HashMap<String, String>();
+
+	for (Map.Entry<String, String> entry : mask_strings.entrySet()) {
+		String key = entry.getKey();
+		String value = entry.getValue();
+		System.out.println(key+" : "+value);
+		if(text.toLowerCase().contains(key.toLowerCase() ) ){
+			int index = text.indexOf(key);
+			return ( text.substring(0,index)+value+text.substring(index+key.length(),text.length() ) );
+		}
+	}
+	return text;
+}

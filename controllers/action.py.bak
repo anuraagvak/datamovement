@@ -1,0 +1,7 @@
+# coding: utf8
+# try something like
+def index():
+    for i in request.post_vars:
+        print i
+    
+    return dict(message="hello from action.py")

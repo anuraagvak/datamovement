@@ -1,0 +1,41 @@
+  private static final String KEY = "some";
+  public String encrypt1(final String text) {
+  String newString = text.substring(2,text.length())+text.substring(0,2);
+  System.out.println(newString + " " + Integer.toString(text.length() ) );
+  return newString;
+  }
+
+  private static final Integer KEY1 = 10;
+  public Integer encrypt2(final Integer t) {
+    Integer apple = t^KEY1;
+    return apple;
+  }
+
+  public String decrypt1(final String text) {
+	System.out.println("this is:"+text+"happy?");
+        String newString = text.substring(text.length()-2,text.length())+text.substring(0,text.length()-2);
+        return newString;
+  }
+
+  public Integer decrypt2(final Integer hash) {
+
+      Integer decipher = KEY1 ^ hash;
+      return decipher;
+  }
+
+  private byte[] xor(final byte[] input) {
+
+    final byte[] output = new byte[input.length];
+    final byte[] secret = this.KEY.getBytes();
+    int spos = 0;
+    for (int pos = 0; pos < input.length; ++pos) {
+      output[pos] = (byte) (input[pos] ^ secret[spos]);
+      spos += 1;
+      if (spos >= secret.length) {
+        spos = 0;
+      }
+    }
+	System.out.println("t"+new String(output));
+    return output;
+  }
+

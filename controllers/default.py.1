@@ -1,0 +1,290 @@
+# coding: utf8
+# try something like
+import os
+import subprocess
+import MySQLdb
+Table = "workflow";
+machine="localhost";
+database_name="hadoop";
+db_username="root";
+password="hadoop";
+
+def index():
+    redirect(URL('main'))
+
+    return dict(message="hello from default.py")
+def compile1():
+    return dict(hello="hello");
+tkns=[]
+codegen1="";
+def codegen(str="",table=""):
+    posvars=request.post_vars;
+#    //codegen:          generate import-export code without performing actual import/export, modify the gnerated java file, compile it to jar, give it to sqoop.
+#    global $TABLE,$machine,$password,$db_username,$database_name;
+    global codegen1;
+    if str=="":
+       # os.remove(Table+".java");
+       # os.remove(Table+".jar");
+       # os.remove(Table+".class")
+        
+        codegen1= "/home/hduser/sqoop/bin/sqoop codegen --connect jdbc:mysql://"+machine+"/"+database_name+" --username "+db_username+" --password '"+password+"' --table "+Table ;
+        if posvars['op']=="import":
+            if posvars['field_delim']!="":
+                codegen1=codegen1+" --fields-terminated-by "+"'" +posvars['field_delim']+"'";
+            if posvars['line_delim']!="":
+                codegen1=codegen1+" --lines-terminated-by "+"'" +posvars['line_delim']+"'";
+            if 'enclosed' in posvars:
+                if posvars['enclosingchar']=='"':
+                    posvars['enclosingchar']='\"';
+                    codegen1=codegen1+" "+posvars['enclosed']+" '"+posvars['enclosingchar']+ "'";
+
+    else:
+        os.remove(TABLE+".java");
+        os.remove(TABLE+".jar");
+        os.remove(TABLE+".class");
+        codegen1=str;
+
+    codegen1 = codegen1+" --bindir . 2> err ; echo $?"; 
+    
+#    echo "codegen command=".$codegen."<br/>";
+    output = os.popen(codegen1).read()
+#    $output= shell_exec($codegen);
+    tkns=output.split('\n');
+    
+ #   if output[output.__len__()-2]!="0":
+    return dict (tkns=tkns,message = "codegen wright")
+#       return "<br>??????????????Codegen error<br>";#echo $output;exit(0);
+
+
+def running_jobs():
+    jobs=[];
+    output = os.popen(""" jps | grep Jps | awk '{print $1;}' """).read()
+    output = output.split('\n')[:-1];
+    try :
+        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='hadoop')
+        cur=connection.cursor();
+        query = "select * from all_databases where result = 0";
+        cur.execute(query)
+        tables = cur.fetchall()
+        cur1 = connection.cursor();
+        query = "select * from all_databases where job_status = 0";
+        cur1.execute(query)
+        tables2 = cur1.fetchall()
+        cur2 = connection.cursor();
+        query = "select * from all_databases where result != 0";
+        cur2.execute(query)
+        tables3 = cur2.fetchall()
+#        max_id = tables[0][0];
+    except:
+        print "weee2"
+    return dict(jobs = tables,running = tables2,failed=tables3);
+
+def main():
+    tables = [];
+    path = '/'
+    if 'path' in request.get_vars:
+        path = request.get_vars['path'];
+    a = "hadoop fs -ls "+path+" | tr -s ' ' | cut -d ' ' -f8"
+    output = os.popen(a).read()
+    tokens = output.split('\n')
+    error = ""
+    try :
+        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='hadoop')
+        cur=connection.cursor()
+        query = "show tables"
+        cur.execute(query)
+        tables = cur.fetchall()
+        return dict(tokens=tokens,error=error,tables=tables,test = request.get_vars)
+    except:
+        print "weee"
+        error = "failed to connect to MySQL: "
+        return dict(tokens=tokens,error=error,tables=tables)
+
+def action():
+    present_pid = os.getpid();
+    global codegen1;
+    posvars = request.post_vars;
+    comm = "sqoop "+posvars['op'];
+
+    max_id = 0;
+    try :
+        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='hadoop')
+        cur=connection.cursor();
+        query = "insert into all_databases(operation,table_transfered,start_time,job_status) values (" +""" ' """ + posvars['op'] + """ ', """ + "'" + posvars['table'] +"'" + ", NOW(),0);";
+        cur.execute(query)
+        connection.commit();
+        cur1=connection.cursor();
+        query = """ select max(id) from all_databases;  """;
+        cur1.execute(query)
+        tables = cur1.fetchall()
+        max_id = tables[0][0];
+    except:
+        print "weee2"
+
+    
+    if posvars['op'] == "export":
+        if 'directory' in posvars:   #isset($_POST['directory']))
+            sourcedir=posvars['directory']; #radio based input
+        if posvars['sourcedir']!="":
+            sourcedir=posvars['sourcedir']; #text based input : priority more
+
+        exp="";
+        if 'decrypt' in posvars:
+            codegen();
+            array1=posvars['decrypt_columns'].split(',');
+            print array1;
+            change_export(Table+".java",array1,posvars['deckey']);
+            compile1();
+            exp="  --jar-file "+Table+".jar --class-name "+Table;
+        comm=comm+" --connect jdbc:mysql://"+machine+"/"+database_name+" --username "+db_username+" --password '"+password+"' --table "+posvars['table']+" "+exp;
+
+        if 'update' in posvars:
+            if posvars['refcol']=="":
+                print "Specify the reference column<br/>";
+                exit(0);
+            comm=comm+" --update-key "+posvars['refcol'];
+        comm=comm+" --export-dir "+sourcedir;
+        if 'validate' in posvars:
+            comm=comm+" --validate";
+        if 'parallel1' in posvars:
+            comm=comm+" -m "+posvars['parallel'];
+
+#        comm=comm+" ; echo $?";
+        print "Export command="+comm+"<br>";
+                       ####this is the main execute step .... not done because sqoop not working properly
+        #echo $output;
+#        val=output[strlen(output)-2];
+        val = "0";
+        if val=="0":#//;//shell_exec("echo $?");
+            print "<h2> Successfully Exported from HDFS to RDBMS:)</h2>";
+            
+        else:
+            print "<h2> Export from HDFS to RDBMS Failed :( </h2>";
+
+        comm = comm+ """ ;mysql --user=root --password=hadoop -e "use hadoop;update all_databases set result=$?,job_status=1  where id= """+ str(max_id) +""" AND job_status=0 "; exit 1 """;
+        file1 = open(str(present_pid),'w');
+        file1.write(comm);
+        file1.close();
+        print "why this kolaveri python"
+        print present_pid;
+        pid = os.fork();
+        if pid != 0:
+                print "this is parent...whatever"
+                print pid;
+                try :
+                        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='hadoop')
+                        cur=connection.cursor();
+                        query = "update all_databases set pid="+ str(pid+1) + " where id="+str(max_id)+";";
+                        cur.execute(query)
+                        connection.commit();
+                        tables = cur.fetchall()
+                except:
+                        print "weee1"
+
+        else:
+                os.execlp('bash','bash',str(present_pid));
+
+
+
+    elif posvars['op'] == "import":
+        imp="";
+        if 'encrypt' in posvars:
+            codegen();
+            array=posvars['encrypt_columns'].split(',');#explode(",",$_POST['encrypt_columns']);
+            #print_r($array);
+#            change_import($TABLE.".java",$array,$_POST['enckey']);
+            compile1();
+            imp="  --jar-file "+Table+".jar --class-name "+Table;
+        comm=comm + " --connect jdbc:mysql://"+machine+"/"+"mysql"+" --username "+db_username+" --password '"+password+"' --append --table "+posvars['table']+" "+imp;
+
+        if posvars['targetdir']!="":
+            comm=com+" --target-dir "+posvars['targetdir'];
+        elif 'directory' not in posvars:
+            f=0;
+        elif posvars['directory']!="default":
+            comm =comm+" --target-dir "+posvars['directory'];
+        elif posvars['directory'] == "default":
+            comm = comm + " --target-dir /" + posvars['table'];
+        
+
+#    if(isset($_POST['delete']))$comm.= " --delete-tarPOST-dir";
+
+        if 'filetype' in posvars:
+            comm=comm+ " "+posvars['filetype'];
+
+#    if(isset($_POST['importall']))
+
+        if 'append' in posvars:
+            comm= comm + " --append";
+        if posvars['where']!="":
+            comm= comm + ' --where "'+posvars['where']+'"';
+
+        elif 'validate' in posvars:
+            comm= comm+" --validate";
+
+        if 'encrypt' not in posvars:
+
+            if posvars['columns']!="":
+                comm=comm+ " --columns "+'"'+posvars['columns']+'"';
+            if posvars['field_delim']!="":
+                comm=comm+" --fields-terminated-by "+"'" +posvars['field_delim']+"'";
+            if posvars['line_delim']!="":
+                comm=comm+" --lines-terminated-by "+"'" +posvars['line_delim']+"'";    
+            if 'enclosed' in posvars:
+                if posvars['enclosingchar']=='"':
+                    posvars['enclosingchar']='\"';
+                comm=comm+" "+posvars['enclosed']+" '"+posvars['enclosingchar']+"'";
+
+        if 'compressed' in posvars:
+            comm=comm+" -z";
+        if 'parallel1' in posvars:
+            comm=comm+" -m "+posvars['parallel'];
+            
+        comm = comm+ """ ;mysql --user=root --password=hadoop -e "use hadoop;update all_databases set result=$?,job_status=1  where id= """+ str(max_id) +""" AND job_status=0 "; exit 1 """;
+        file1 = open(str(present_pid),'w');
+        file1.write(comm);
+        file1.close();
+        print "why this kolaveri python"
+        print present_pid;
+        pid = os.fork();
+        if pid != 0:
+                print "this is parent...whatever"
+                print pid;
+                try :
+                        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='hadoop')
+                        cur=connection.cursor();
+                        query = "update all_databases set pid="+ str(pid+1) + " where id="+str(max_id)+";";
+                        cur.execute(query)
+                        connection.commit();
+                        tables = cur.fetchall()
+                except:
+                        print "weee1"
+
+        else:
+                os.execlp('bash','bash',str(present_pid));
+
+
+    #$comm="ls ; echo $?";
+#    echo "comm<br/>"; 
+#    output = 
+#    os.system(comm);
+#    comand = """ ps | grep bash | awk '{print $2}' """
+#    present_tty = os.popen(comand).read();
+#    comm = comm + "  "+present_tty;
+
+#    os.popen(comm).read();
+#    output= shell_exec($comm);
+#    echo $output;
+    val='0';#output[output.__len__()-2];
+#    echo $val;
+#    echo "---".$output[strlen($output)-1]."---"."---".$output[strlen($output)-2]."---"."---".$output[strlen($output)-3]."---"."<br/>";
+    redirect(URL('running_jobs'))
+"""
+    if val=="0": #{//;//shell_exec("echo $?");
+        return dict(message = "Successfully Imported from RDBMS to HDFS",val=val,tkns=tkns,codegen1=codegen1,comm=comm);
+    else:
+        return dict(message = "Failed!",val = val,codegen1=codegen1,comm=comm);
+"""
+
+        
+#    return dict(posvars = request.post_vars);

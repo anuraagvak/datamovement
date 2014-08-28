@@ -1,0 +1,18 @@
+<p>
+    This is finished ones: </br>
+    {{for i in jobs:}}
+    {{=i}}</br>
+    {{pass}}
+</br>
+This is runnig ones :</br>
+    {{for i in running:}}
+    {{=i}}<br>
+    {{pass}}
+
+</br>
+This is runnig ones :</br>
+    {{for i in failed:}}
+    {{=i}}<br>
+    {{pass}}
+    
+</p>
