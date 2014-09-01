@@ -1,0 +1,277 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'Framework'
+p4
+sS'code'
+p5
+S''
+sS'snapshot'
+p6
+(dp7
+S'exception'
+p8
+(dp9
+S'__getslice__'
+p10
+S"<method-wrapper '__getslice__' of exceptions.OSError object>"
+p11
+sS'__str__'
+p12
+S"<method-wrapper '__str__' of exceptions.OSError object>"
+p13
+sS'__reduce__'
+p14
+S'<built-in method __reduce__ of exceptions.OSError object>'
+p15
+sS'__dict__'
+p16
+S'{}'
+p17
+sS'__sizeof__'
+p18
+S'<built-in method __sizeof__ of exceptions.OSError object>'
+p19
+sS'__init__'
+p20
+S"<method-wrapper '__init__' of exceptions.OSError object>"
+p21
+sS'__setattr__'
+p22
+S"<method-wrapper '__setattr__' of exceptions.OSError object>"
+p23
+sS'__reduce_ex__'
+p24
+S'<built-in method __reduce_ex__ of exceptions.OSError object>'
+p25
+sS'__new__'
+p26
+S'<built-in method __new__ of type object>'
+p27
+sS'errno'
+p28
+S'2'
+sS'__format__'
+p29
+S'<built-in method __format__ of exceptions.OSError object>'
+p30
+sS'__class__'
+p31
+S"<type 'exceptions.OSError'>"
+p32
+sS'filename'
+p33
+S"'/tmp/tmp1QPebu'"
+p34
+sS'__doc__'
+p35
+S"'OS system call failed.'"
+p36
+sS'__getitem__'
+p37
+S"<method-wrapper '__getitem__' of exceptions.OSError object>"
+p38
+sS'__setstate__'
+p39
+S'<built-in method __setstate__ of exceptions.OSError object>'
+p40
+sS'__getattribute__'
+p41
+S"<method-wrapper '__getattribute__' of exceptions.OSError object>"
+p42
+sS'args'
+p43
+S"(2, 'No such file or directory')"
+p44
+sS'__subclasshook__'
+p45
+S'<built-in method __subclasshook__ of type object>'
+p46
+sS'__unicode__'
+p47
+S'<built-in method __unicode__ of exceptions.OSError object>'
+p48
+sS'strerror'
+p49
+S"'No such file or directory'"
+p50
+sS'__delattr__'
+p51
+S"<method-wrapper '__delattr__' of exceptions.OSError object>"
+p52
+sS'__repr__'
+p53
+S"<method-wrapper '__repr__' of exceptions.OSError object>"
+p54
+sS'__hash__'
+p55
+S"<method-wrapper '__hash__' of exceptions.OSError object>"
+p56
+ssS'evalue'
+p57
+S"[Errno 2] No such file or directory: '/tmp/tmp1QPebu'"
+p58
+sS'request'
+p59
+cgluon.html
+XML_unpickle
+p60
+(S's\x06Z\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>datamovement</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-dae79fa1-a1e4-4a70-bcdc-211213ef40c0<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_datamovement</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>532</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=---------------------------194445872419442372681341044497</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>532</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=---------------------------194445872419442372681341044497</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_datamovement=127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e; session_id_admin=127.0.0.1-dae79fa1-a1e4-4a70-bcdc-211213ef40c0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/datamovement/default/mysqltocassandra</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/datamovement/default/mysqltocassandra2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>45405</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>anuraag-Inspiron-N5110</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/hduser/web2py/applications/admin/&#x27;, &#x27;/home/hduser/web2py/applications/datamovement/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x14a9a28: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;anuraag-Inspiron-N5110&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: True, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/hduser/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;1&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_length</td><td style="vertical-align:top;">:</td><td><div>532</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=---------------------------194445872419442372681341044497</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_length</td><td style="vertical-align:top;">:</td><td><div>532</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=---------------------------194445872419442372681341044497</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_datamovement=127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e; session_id_admin=127.0.0.1-dae79fa1-a1e4-4a70-bcdc-211213ef40c0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/datamovement/default/mysqltocassandra</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>anuraag-Inspiron-N5110</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/datamovement/default/mysqltocassandra2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>45405</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/datamovement/default/mysqltocassandra2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>anuraag-Inspiron-N5110</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7fd9801a5270&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x1414738&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7fd96c310750&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7fd9801a5270&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x1414738&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7fd96c310750&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py/applications/datamovement/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>mysqltocassandra2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/hduser/web2py/applications/admin/&#x27;, &#x27;/home/hduser/web2py/applications/datamovement/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x14a9a28: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;anuraag-Inspiron-N5110&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: True, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/hduser/web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;1&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>anuraag-Inspiron-N5110</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 9, 1, 1, 19, 3, 41438)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/datamovement/default/mysqltocassandra2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 8, 31, 19, 34, 3, 41491)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">uuid</td><td style="vertical-align:top;">:</td><td><div>datamovement/127.0.0.1.2014-09-01.01-19-03.57cdb043-d8e4-49fe-9589-a71bd94b8f06</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7fd96821b990&gt;</div></td></tr></table></div>'
+tRp61
+sS'frames'
+p62
+(lp63
+(dp64
+S'file'
+p65
+S'/home/hduser/web2py/gluon/main.py'
+p66
+sS'dump'
+p67
+(dp68
+S'request.body'
+p69
+S"<closed file '<fdopen>', mode 'w+b'>"
+p70
+sS'request'
+p71
+S"<Storage {'_vars': None, 'function': 'mysqltocas.../home/hduser/web2py/applications/datamovement/'}>"
+p72
+sS'request.body.close'
+p73
+S"<bound method _TemporaryFileWrapper.close of <closed file '<fdopen>', mode 'w+b'>>"
+p74
+ssS'lnum'
+p75
+I503
+sS'lines'
+p76
+(dp77
+I498
+S'                ticket = None'
+p78
+sI499
+S''
+sI500
+S'            except RestrictedError, e:'
+p79
+sI501
+S''
+sI502
+S'                if request.body:'
+p80
+sI503
+S'                    request.body.close()'
+p81
+sI504
+S''
+sI505
+S'                # ##################################################'
+p82
+sI506
+S'                # on application error, rollback database'
+p83
+sI507
+S'                # ##################################################'
+p84
+ssS'call'
+p85
+S"(environ={'CONTENT_LENGTH': '532', 'CONTENT_TYPE': 'multipart/form-data; boundary=---------------------------194445872419442372681341044497', 'HTTP_ACCEPT': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'HTTP_ACCEPT_ENCODING': 'gzip, deflate', 'HTTP_ACCEPT_LANGUAGE': 'en-US,en;q=0.5', 'HTTP_CONNECTION': 'keep-alive', 'HTTP_CONTENT_LENGTH': '532', 'HTTP_CONTENT_TYPE': 'multipart/form-data; boundary=---------------------------194445872419442372681341044497', 'HTTP_COOKIE': 'session_id_datamovement=127.0.0.1-87a7dd32-5865-...in=127.0.0.1-dae79fa1-a1e4-4a70-bcdc-211213ef40c0', 'HTTP_HOST': '127.0.0.1:8000', ...}, responder=<function responder2>)"
+p86
+sS'func'
+p87
+S'wsgibase'
+p88
+sa(dp89
+g65
+S'/usr/lib/python2.7/tempfile.py'
+p90
+sg67
+(dp91
+S'self'
+p92
+S"<closed file '<fdopen>', mode 'w+b'>"
+p93
+sS'self.name'
+p94
+S"'/tmp/tmp1QPebu'"
+p95
+sS'self.unlink'
+p96
+S'<built-in function unlink>'
+p97
+ssg75
+I410
+sg76
+(dp98
+I405
+S'        def close(self):'
+p99
+sI406
+S'            if not self.close_called:'
+p100
+sI407
+S'                self.close_called = True'
+p101
+sI408
+S'                self.file.close()'
+p102
+sI409
+S'                if self.delete:'
+p103
+sI410
+S'                    self.unlink(self.name)'
+p104
+sI411
+S''
+sI412
+S'        def __del__(self):'
+p105
+sI413
+S'            self.close()'
+p106
+sI414
+S''
+ssg85
+S"(self=<closed file '<fdopen>', mode 'w+b'>)"
+p107
+sg87
+S'close'
+p108
+sasS'pyver'
+p109
+S'Python 2.7.3: /usr/bin/python (prefix: /usr)'
+p110
+sS'session'
+p111
+g60
+(S's\xdb\x08\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>f1593bb4-532f-40ce-94be-5a8a4403356a</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 9, 1, 1, 13, 9, 24979)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remember</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>vamsi1899@gmail.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">first_name</td><td style="vertical-align:top;">:</td><td><div>a</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>1L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_name</td><td style="vertical-align:top;">:</td><td><div>b</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">1</td><td style="vertical-align:top;">:</td><td><div>user_1</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr></table></div>'
+tRp112
+sS'etype'
+p113
+S"<type 'exceptions.OSError'>"
+p114
+sS'date'
+p115
+S'Mon Sep  1 01:19:03 2014'
+p116
+sS'response'
+p117
+g60
+(S'sn\x1c\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7fd95847fce0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_datamovement</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/datamovement/default/index</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">copyright</td><td style="vertical-align:top;">:</td><td><div>Copyright 2011</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">description</td><td style="vertical-align:top;">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/mysqltocassandra2/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_datamovement</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/hduser/web2py/applications/datamovement/sessions/127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e&#x27;, mode &#x27;rb+&#x27; at 0x7fd968220300&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/hduser/web2py/applications/datamovement/sessions/127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>480526475b953a238a0f3547f42a765f</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-87a7dd32-5865-4b05-b3f6-316d1d59132e</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_datamovement</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>datamovement</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div>customize me!</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Datamovement</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/mysqltocassandra2.html</div></td></tr></table></div>'
+tRp118
+sS'locals'
+p119
+(dp120
+S'self'
+p121
+S"<closed file '<fdopen>', mode 'w+b'>"
+p122
+sssS'traceback'
+p123
+S'Traceback (most recent call last):\n  File "/home/hduser/web2py/gluon/main.py", line 503, in wsgibase\n    request.body.close()\n  File "/usr/lib/python2.7/tempfile.py", line 410, in close\n    self.unlink(self.name)\nOSError: [Errno 2] No such file or directory: \'/tmp/tmp1QPebu\'\n'
+p124
+s.

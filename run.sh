@@ -1,0 +1,1 @@
+ cqlsh -e """INSERT INTO hadoop.login (id,email,org_id,password,status,username)   VALUES ('999', 'guru@gmail.com', 'rajapalayam','asdfasdf','not','guru')  """

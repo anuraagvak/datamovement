@@ -18,27 +18,147 @@
   <div id="content">
     <div id="main"> <a name="TemplateInfo"></a>
  
+         <table>
+<tr>
+<td>
+{{v = db_type}}
+
+    <legend style="width:160px;">Running Jobs</legend>
     
+    </h4>
+    {{if running == ():}}
+    <h6>
+        No current jobs...
+    </h6>
+    
+    {{else:}}
+	<table class="table table-hover" border=1>
+        <tr>
+                <th>id</th>
+                <th>From</th>
+				<th>To</th>
+                <th>Table Name</th>
+                <th>Time Stamp</th>
+                
         
-         
+        </tr>
+        {{for l in running:}}
+	<tr>
+			<td>{{=l[0]}}</td>
+		{{if l[2]=="import":}}
+			<td>MySQL</td>
+            <td>HDFS</td>
+        {{else:}}
+			<td>HDFS</td>
+        			<td>MySQL</td>
+        {{pass}}
+
+   			<td>{{=l[3]}}</td>
+            <td>{{=l[4]}}</td>
+        </tr>
+        {{pass}}
+</table> 
+    {{pass}}
+    <legend style="width:180px">
+            
+        Successful Jobs</legend>
+    
+    
+         <div style="float:right;margin-right:300px;">
+    
+ 
+        </div>
+    
+        {{if L == ():}}
+    <h6>
+        No current jobs...
+    </h6>
+    
+    {{else:}}
+
+    
+    
+	<table class="table table-hover" border=1>
+        <tr>
+                <th>id</th>
+                <th>From</th>
+				<th>To</th>
+                <th>Table Name</th>
+                <th>Time Stamp</th>
+                
+        
+        </tr>
+        {{for l in L:}}
+	<tr>
+			<td>{{=l[0]}}</td>
+		{{if l[2]=="import":}}
+			<td>MySQL</td>
+            <td>HDFS</td>
+        {{else:}}
+			<td>HDFS</td>
+        			<td>MySQL</td>
+        {{pass}}
+
+   			<td>{{=l[3]}}</td>
+            <td>{{=l[4]}}</td>
+        </tr>
+        {{pass}}
+</table> 
+    {{pass}}
+    <legend style="width:160px">
+            
+        Failed Jobs</legend>
+        {{if failed == ():}}
+    <h6>
+        No current jobs...
+    </h6>
+    
+    {{else:}}
+
+    
+    	<table class="table table-hover" border=1>
+        <tr>
+                <th>id</th>
+                <th>From</th>
+				<th>To</th>
+                <th>Table Name</th>
+                <th>Time Stamp</th>
+                
+        
+        </tr>
+        {{for l in failed:}}
+	<tr>
+			<td>{{=l[0]}}</td>
+		{{if l[2]=="import":}}
+			<td>MySQL</td>
+            <td>HDFS</td>
+        {{else:}}
+			<td>HDFS</td>
+        			<td>MySQL</td>
+        {{pass}}
+
+   			<td>{{=l[3]}}</td>
+            <td>{{=l[4]}}</td>
+        </tr>
+        {{pass}}
+</table>
+    {{pass}}
+    </br></br>
+</td></tr></table>
       <br />
     </div>
     <div id="sidebar">
-    
    <h1>Select the Data Source</h1>
-    <form action="main1.html">
-
+        <form action="hdfstocassandra.html">
         <select class="form-control" name="dbtype">
             <option value="sql"> MySQL </option>
             <option value="cassandra"> Cassandra </option>
         </select>
-        <button style="margin-top:20px;" class="btn btn-info" type="submit">Create New Job</button>
+        <button style="margin-top:20px;" class="btn btn-info" type="submit">Create New Job!!!</button>
     </form>
- 
     </div>
   </div>
 </div>
-
 </body>
 </html>
 </body>

@@ -1,3 +1,13 @@
-{{extend 'layout.html'}}
-<h1>This is the default/db_combination.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<p>
+    asdfasdfadsf
+</p>
+<form action="all_jobs1.html">
+    <input type="submit" value="HDFS-Cassandra">
+</form>
+<form action="all_jobs.html">
+    <input type="submit" value="MySQL-HDFS">
+</form>
+
+<form action="all_jobs2.html">
+    <input type="submit" value="MySQL-Cassandra">
+</form>

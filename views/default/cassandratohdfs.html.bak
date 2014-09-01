@@ -1,0 +1,117 @@
+<html><head><script src="../static/js/jquery.js"></script><script src="../static/js/sqooper.js"></script> <link rel="stylesheet" type="text/css" href="../static/css/sqooper.css">
+{{extend 'layout.html'}}
+</head>
+        <!DOCTYPE html>
+{{extend 'layout.html'}}
+
+<html>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/EliteCircle.css">
+<body>
+    <head>
+<title>EliteCircle</title>
+<div id="header">
+</div>
+    <div id="content-wrap">
+  <div id="content">
+    <div id="main"> <a name="TemplateInfo"></a>
+        <form action= 'cassandratohdfs2' method='post' enctype='multipart/form-data'>
+         <fieldset><legend>Select Directory</legend>
+          {{for token in tokens:}}
+           {{if token != "":}}
+                 <input type="radio" name="directory" value="{{=token}}"><a href="hdfs1?path='{{=token}}'">{{=token}}</a><br>
+                 {{pass}}
+                 {{pass}}
+                 <input type="text" name="targetdir1" placeholder="Custom directory name">
+
+          
+ <!--                <input type="checkbox" name="directory" value="default">Create Default Directory with Name as TableName (Works only for Import)<br> -->
+        
+                </fieldset>
+                <fieldset><legend>Select Table:</legend>
+             {{if error != "" :}}
+                        {{=error}}
+             {{pass}}
+                    <script>function Clear()
+{
+   document.getElementById("textbox1").value= "";
+}</script>
+                         <script>
+                     $(document).ready(function(){
+                     $('#tb tr').click(function(){
+
+
+                         
+var chbx = $(this).children('td').slice(0,1).children('input');
+
+var v = chbx.val();
+
+var length = $(this).children('td').slice(1,2).length;
+
+console.log(chbx.prop('checked'));
+                         
+                         
+                         
+                         
+if(chbx.prop('checked') && length == 0)  {
+          
+                        
+         $('.inp').remove();   
+                         
+
+        $(this).append('<td><input type="text" name="updateid" class = "inp" placeholder="Enter reference column to update the table" ></td>')
+
+}
+
+
+                     });
+
+                     });
+             </script>
+                        
+                        
+                        
+                        
+                        
+            <table id="tb">
+          {{for t in tables:}}
+                    <tr><td>
+                        <input type="radio" name="table" id="table11" value={{=t}}>{{=t}}<br>
+                         </td>
+                  
+                       </tr>
+                  
+                       
+           {{pass}}
+            </table>
+          </fieldset>
+                <br><input type="submit" value="Transfer Data"/>
+        </form>
+        </body>
+
+
+<!--
+<html><head><script src="../static/js/jquery.js"></script><script src="../static/js/sqooper.js"></script> <link rel="stylesheet" type="text/css" href="../static/css/sqooper.css">
+{{extend 'layout.html'}}
+    
+    <!DOCTYPE html>
+    
+{{ extend 'layout.html'}}
+<html>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/EliteCircle.css">
+<body>
+<head>
+<title>EliteCircle</title>
+
+</head>
+<body>
+    {{=tokens}}
+    {{=tables}}
+    {{=dic}}
+    <form action= 'hdfstocassandra2' method='post' >
+        <input type = "hidden" name = "table" value={{=tables}}>
+        <input type = "hidden" name = "dic" value={{=dic['login']}}>
+        <input type="submit" value="Transfer Data"/>
+    </form>
+</body>

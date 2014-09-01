@@ -5,6 +5,8 @@ import subprocess
 import MySQLdb
 import json
 import urllib2
+is_hdfs_to_cassandra = 0
+hdfs_cass_posvars = {}
 Table = "workflow";
 machine="localhost";
 database_name="hadoop";
@@ -18,6 +20,7 @@ def index():
 #    redirect(URL('all_jobs'));
 
     return dict(message="hello from default.py")
+
 def compile1():
     return dict(hello="hello");
 tkns=[]
@@ -198,8 +201,14 @@ def db_combination():
 
 @auth.requires_login()
 def all_jobs1():
-	os.popen('python ~/web2py/ex.py');
-	return dict(a=1);
+#	os.popen('python ~/web2py/ex.py');
+    return dict(L = [],running = [],failed=[],db_type="sql");
+#	return dict(a=1);
+
+@auth.requires_login()
+def all_jobs2():
+    return dict(L = [],running = [],failed=[],db_type="sql");
+
 
 @auth.requires_login()
 def all_jobs():
@@ -240,6 +249,7 @@ def sql1():
         query = "show tables"
         cur.execute(query)
         tables = cur.fetchall()
+        print tables
         dic ={}
         for (t,) in tables:
                     
@@ -252,6 +262,7 @@ def sql1():
                     dic[t] = []
                     for i in columns:
                             dic[t].append(i[0])
+        print dic
 #                    print dic[t]
         return dict(tokens=tokens,error=error,tables=tables,test = request.get_vars,dic=dic)
     except:
@@ -297,10 +308,16 @@ def main1():
 def sql2():
 	return dict(a=100);
 
+#hdfs to mysql
 
 @auth.requires_login()
 def hdfs():
+    global is_hdfs_to_cassandra;
+    global hdfs_cass_posvars
     posvars = request.post_vars;
+    print posvars;
+    if 'policy_name' not in posvars:
+        posvars['policy_name'] = "anuraag1"
     json_data=open('/home/hduser/web2py/applications/Policy_server/json_files/'+posvars['policy_name']+'.json','r')
     data = json.load(json_data)
     print data['hadoop']
@@ -327,10 +344,7 @@ def hdfs():
         max_id = tables[0][0];
     except:
         print "weee2"
-        
     imp = "";
-
-
 
 
     if posvars['op'] == "export":
@@ -340,7 +354,6 @@ def hdfs():
 	if posvars['directory'][1:] not in data['hadoop']:
 		data['hadoop'][posvars['directory'][1:]] = {};
 	print posvars['directory'][1:]
-	print "asdfasdfdkjasfhkasdhflkjadhfslkjhasdflkjdhasfklh"
 	print data
 
     	for i in data['hadoop'][posvars['directory'][1:]]:
@@ -373,7 +386,16 @@ def hdfs():
 
         print "Export command="+comm+" <br>";
 
-        comm = comm+ """ ;mysql --user=root --password=hadoop -e "use jobs;update db set result=$?,job_status=1  where id= """+ str(max_id) +""" AND job_status=0 "; exit 1 """;
+        comm = comm+ """ ;mysql --user=root --password=hadoop -e "use jobs;update db set result=$?,job_status=1  where id= """+ str(max_id) +""" AND job_status=0 "; """;
+        
+        quotes = """ " """
+        quotes = quotes.split()[0]
+        if is_hdfs_to_cassandra == 1:
+            print "hdfs_cass_posvars"
+            print hdfs_cass_posvars;
+            comm = comm + "echo hadoop | sudo -S rm /tmp/data.txt; mysql --user=root --password=hadoop -e "+quotes+quotes+quotes+ """ use hadoop;SELECT * from """ + hdfs_cass_posvars['table'] +""" INTO OUTFILE '/tmp/data.txt' fields terminated by ','; """ +quotes+quotes+quotes+""" ; echo hadoop | sudo -S mv /tmp/data.txt /home/hduser/. """;
+            comm = comm + """ ; cqlsh -e " use hadoop; copy """ + hdfs_cass_posvars['table1'] + """ from '/home/hduser/data.txt' " """
+
         file1 = open(str(present_pid),'w');
         print comm;
         file1.write(comm);
@@ -394,12 +416,21 @@ def hdfs():
                 os.execlp('bash','bash',str(present_pid));
 
     val='0';#output[output.__len__()-2];
+    if is_hdfs_to_cassandra == 1:
+        print "in the hdfs() thing"
+        is_hdfs_to_cassandra = 0
+        return;
     redirect(URL('all_jobs'))
 
+#mysql to hdfs
 
 @auth.requires_login()
 def sql():
+    global is_cassandra_to_hdfs;
+    global cass_hdfs_posvars;
     posvars = request.post_vars;
+    if 'policy_name' not in posvars:
+        posvars['policy_name'] = "anuraag1"
     print "came to sql"
     print posvars
     json_data=open('/home/hduser/web2py/applications/Policy_server/json_files/'+posvars['policy_name']+'.json','r')
@@ -508,22 +539,386 @@ def sql():
             print present_pid;
             pid = os.fork();
             if pid != 0:
-                    print pid;
-                    try :
-                            connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='jobs')
-                            cur=connection.cursor();
-                            query = "update db set pid="+ str(pid+1) + " where id="+str(max_id)+";";
-                            cur.execute(query)
-                            connection.commit();
-                            tables = cur.fetchall()
-                    except:
-                            print "weee1"
-    
+                print pid;
+                try :
+                        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='jobs')
+                        cur=connection.cursor();
+                        query = "update db set pid="+ str(pid+1) + " where id="+str(max_id)+";";
+                        cur.execute(query)
+                        connection.commit();
+                        tables = cur.fetchall()
+                except:
+                        print "weee1"
             else:
-                    os.execlp('bash','bash',str(present_pid));
+                os.execlp('bash','bash',str(present_pid));
 
     val='0';#output[output.__len__()-2];
+    if is_cassandra_to_hdfs == 1:
+        is_cassandra_to_hdfs = 0
+        return;
     redirect(URL('all_jobs'))
 #    return dict(posvars = request.post_vars);
 def user():
     return dict(form=auth())
+
+
+@auth.requires_login()
+def cassandratohdfs():
+    tables = [];
+    path = '/'
+    if 'path' in request.get_vars:
+        path = request.get_vars['path'];
+    a = "hadoop fs -ls "+path+" | tr -s ' ' | cut -d ' ' -f8"
+    output = os.popen(a).read()
+    tokens = output.split()
+    error = ""
+    try :
+        b = """ cqlsh -e " use hadoop;describe tables " """
+        print b;
+        output = os.popen(b).read()
+        tables = output.split();
+        print tables
+        dic ={}
+        for t in tables:
+            query = """ cqlsh -e " use hadoop;describe columnfamily """ + t + """ " """;
+            output = os.popen(query).read()
+            output = output.split(',')
+            output[0] = output[0].split('(')[1]
+            print output
+            dic[t] = []
+
+            for i in output:
+                if len(i.split()) == 2:
+                    print i.split()[0]
+                    dic[t].append(i.split()[0])
+            
+            print dic
+        return dict(tokens=tokens,error=error,tables=tables,test = request.get_vars,dic=dic)
+    except:
+        print "weee"
+        error = "failed to connect to MySQL: "
+        return dict(tokens=tokens,error=error,tables=tables,dic=dic)
+
+    return dict(message="hello from hdfstocassandra.py")
+
+
+@auth.requires_login()
+def cassandratohdfs2():
+    global is_cassandra_to_hdfs;
+    global cass_hdfs_posvars;
+    is_cassandra_to_hdfs = 1
+    posvars=request.post_vars;
+    cass_hdfs_posvars = {'table':posvars['table'], 'table1':posvars['table']};
+
+    comm = """ cqlsh -e " copy hadoop."""+posvars['table']+""" to 'temp.csv' " """
+    print comm
+    result = os.popen(comm).read()
+
+    #csv file to mysql
+    quotes = """ " """
+    quotes = quotes.split()[0]
+    comm = "echo hadoop | sudo -S  mv temp.csv /var/lib/mysql/hadoop/.;  mysql --user=root --password=hadoop -e " +quotes+quotes+quotes+ """ LOAD DATA INFILE 'temp.csv' INTO TABLE hadoop.""" + posvars['table'] +""" FIELDS TERMINATED BY ','; """ +quotes+quotes+quotes;
+    print comm
+    result = os.popen(comm).read();
+
+    sql()
+    print "returned "
+
+
+@auth.requires_login()
+def hdfstocassandra2():
+    global is_hdfs_to_cassandra;
+    global hdfs_cass_posvars;
+    is_hdfs_to_cassandra = 1
+    posvars=request.post_vars;
+    hdfs_cass_posvars = {'table':posvars['table'], 'table1':posvars['table']};
+    hdfs()
+    print "returned "
+#    mysqltocassandra2();
+
+@auth.requires_login()
+def hdfstocassandra222222222():
+    print "hdfstocassandra2"
+    posvars=request.post_vars
+    quotes = """ " """
+    quotes = quotes.split()[0]
+    print quotes;
+    
+    query = """ cqlsh -e " use hadoop;describe columnfamily """ + t + """ " """;
+    output = os.popen(query).read()
+    output = output.split(',')
+    output[0] = output[0].split('(')[1]
+    print output
+    dic[t] = []
+    #    comm = """ cqlsh -e """ + quotes+quotes+quotes +"""INSERT INTO hadoop.""" + posvars['table'] + """  (id,email,org_id,password,status,username)   VALUES ('999', 'guru@gmail.com', 'rajapalayam','asdfasdf','not','guru')  """+quotes+quotes+quotes;
+
+    """
+    for i in output:
+        if len(i.split()) == 2:
+            print i.split()[0]
+
+    print comm;
+    file1 = open('run.sh','w');
+    file1.write(comm);
+    file1.close();
+    """
+    pid = os.fork();
+    if pid != 0:
+        try :
+            connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='jobs')
+            cur=connection.cursor();
+            query = "update db set pid="+ str(pid+1) + " where id="+str(max_id)+";";
+            cur.execute(query)
+            connection.commit();
+            tables = cur.fetchall()
+        except:
+            print "weee1"
+    else:
+        print 'came to else'
+        os.execlp('bash','bash','script.sh');
+
+
+    print posvars
+    redirect(URL('db_combination'))
+
+@auth.requires_login()
+def hdfstocassandra():
+    tables = [];
+    path = '/'
+    if 'path' in request.get_vars:
+        path = request.get_vars['path'];
+    a = "hadoop fs -ls "+path+" | tr -s ' ' | cut -d ' ' -f8"
+    output = os.popen(a).read()
+    tokens = output.split()
+    error = ""
+    try :
+        b = """ cqlsh -e " use hadoop;describe tables " """
+        print b;
+        output = os.popen(b).read()
+        tables = output.split();
+        print tables
+        dic ={}
+        for t in tables:
+            query = """ cqlsh -e " use hadoop;describe columnfamily """ + t + """ " """;
+            output = os.popen(query).read()
+            output = output.split(',')
+            output[0] = output[0].split('(')[1]
+            print output
+            dic[t] = []
+
+            for i in output:
+                if len(i.split()) == 2:
+                    print i.split()[0]
+                    dic[t].append(i.split()[0])
+            
+            print dic
+        return dict(tokens=tokens,error=error,tables=tables,test = request.get_vars,dic=dic)
+    except:
+        print "weee"
+        error = "failed to connect to MySQL: "
+        return dict(tokens=tokens,error=error,tables=tables,dic=dic)
+
+    return dict(message="hello from hdfstocassandra.py")
+
+
+@auth.requires_login()
+def mysqltocassandra():
+    tables = [];
+    tables1 = [];
+    path = '/'
+    error = ""
+    if 'path' in request.get_vars:
+        path = request.get_vars['path'];
+
+    try :
+        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db=database_name)
+        cur=connection.cursor()
+        query = "show tables"
+        cur.execute(query)
+        tables1 = cur.fetchall()
+        print tables1
+        dic1 ={}
+        for (t,) in tables1:
+            print t;
+            cur = connection.cursor()
+            query = "desc "+t +";";
+            cur.execute(query);
+            columns = cur.fetchall()
+            dic1[t] = []
+            for i in columns:
+                    dic1[t].append(i[0])
+        print dic1
+#                    print dic[t]
+    except:
+        print "weee473"
+        error = "failed to connect to MySQL: "
+
+    try :
+        b = """ cqlsh -e " use hadoop;describe tables " """
+        print b;
+        output = os.popen(b).read()
+        print "output is "
+        print output
+        tables = output.split();
+        print tables
+        dic ={}
+        for t in tables:
+            query = """ cqlsh -e " use hadoop;describe columnfamily """ + t + """ " """;
+            output = os.popen(query).read()
+            output = output.split(',')
+            output[0] = output[0].split('(')[1]
+            print output
+            dic[t] = []
+
+            for i in output:
+                if len(i.split()) == 2:
+                    print i.split()[0]
+                    dic[t].append(i.split()[0])
+            print dic
+#                    print dic[t]
+        print "do something for our country"
+        print tables
+        print request.get_vars
+        print dic
+        return dict(error=error,tables=tables,tables1=tables1,test = request.get_vars,dic=dic,dic1=dic1)
+#        return dict(tables=tables,test = request.get_vars,dic=dic)
+    except:
+        print "weee"
+        error = "failed to connect to MySQL: "
+        tables = []
+        tables1 = []
+        dic1 = {}
+        dic = {}
+        return dict(error=error,tables=tables,tables1=tables1,test = request.get_vars,dic=dic,dic1=dic1)
+#        return dict(tokens=tokens,error=error,tables=tables,dic=dic)
+
+    return dict(message="hello from hdfstocassandra.py")
+
+@auth.requires_login()
+def cassandratomysql():
+    tables = [];
+    tables1 = [];
+    path = '/'
+    if 'path' in request.get_vars:
+        path = request.get_vars['path'];
+    error = ""
+    try :
+        connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db=database_name)
+        cur=connection.cursor()
+        query = "show tables"
+        cur.execute(query)
+        tables1 = cur.fetchall()
+        print tables1
+        dic1 ={}
+        for (t,) in tables1:
+            print t;
+            cur = connection.cursor()
+            query = "desc "+t +";";
+            cur.execute(query);
+            columns = cur.fetchall()
+            dic1[t] = []
+            for i in columns:
+                    dic1[t].append(i[0])
+        print dic1
+#                    print dic[t]
+    except:
+        print "weee473"
+        error = "failed to connect to MySQL: "
+
+    try :
+        b = """ cqlsh -e " use hadoop;describe tables " """
+        print b;
+        output = os.popen(b).read()
+        print "output is "
+        print output
+        tables = output.split();
+        print tables
+        dic ={}
+        for t in tables:
+            query = """ cqlsh -e " use hadoop;describe columnfamily """ + t + """ " """;
+            output = os.popen(query).read()
+            output = output.split(',')
+            output[0] = output[0].split('(')[1]
+            print output
+            dic[t] = []
+
+            for i in output:
+                if len(i.split()) == 2:
+                    print i.split()[0]
+                    dic[t].append(i.split()[0])
+            print dic
+#                    print dic[t]
+        print "do something for our country"
+        print tables
+        print request.get_vars
+        print dic
+        return dict(error=error,tables=tables,tables1=tables1,test = request.get_vars,dic=dic,dic1=dic1)
+#        return dict(tables=tables,test = request.get_vars,dic=dic)
+    except:
+        print "weee"
+        error = "failed to connect to MySQL: "
+        tables = []
+        tables1 = []
+        dic1 = {}
+        dic = {}
+        return dict(error=error,tables=tables,tables1=tables1,test = request.get_vars,dic=dic,dic1=dic1)
+#        return dict(tokens=tokens,error=error,tables=tables,dic=dic)
+
+    return dict(message="hello from hdfstocassandra.py")
+
+
+@auth.requires_login()
+def mysqltocassandra2():
+    global is_hdfs_to_cassandra;
+    global hdfs_cass_posvars;
+    if is_hdfs_to_cassandra == 1:
+        posvars = hdfs_cass_posvars;
+        is_hdfs_to_cassandra = 0
+        print "Jai Guru Dev"
+    else:
+        posvars=request.post_vars;
+    quotes = """ " """
+    quotes = quotes.split()[0]
+    comm = "echo hadoop | sudo -S rm /tmp/data.txt; mysql --user=root --password=hadoop -e "+quotes+quotes+quotes+ """ use hadoop;SELECT * from """ + posvars['targetdir'] +""" INTO OUTFILE '/tmp/data.txt' fields terminated by ','; """ +quotes+quotes+quotes+""" ; echo hadoop | sudo -S mv /tmp/data.txt /home/hduser/. """;
+    print comm;
+    result = os.popen(comm).read();
+    print "the result is           ",
+    print result
+
+    pid = os.fork();
+    if pid != 0:
+        try :
+            connection = MySQLdb.connect(host='localhost',user='root', passwd='hadoop', db='jobs')
+            cur=connection.cursor();
+            query = "update db set pid="+ str(pid+1) + " where id="+str(max_id)+";";
+            cur.execute(query)
+            connection.commit();
+            tables = cur.fetchall()
+        except:
+            print "weee1"
+    else:
+        #mysql --user=root --password=hadoop -e """ LOAD DATA INFILE 'data.txt' INTO TABLE hadoop.inputs FIELDS TERMINATED BY ','; """
+        
+        comm= """ cqlsh -e " use hadoop; copy """ + posvars['table'] + """ from '/home/hduser/data.txt' " """
+
+#        comm= """ cqlsh -e " use hadoop; copy"""+ posvars['table1'] +"""(id,email,org_id,password,status,username) from '/home/hduser/data.txt' " """
+        os.popen(comm).read()    #""" cqlsh -e " use hadoop; copy login(id,email,org_id,password,status,username) from '/home/hduser/data.txt' " """).read()
+#        os.execlp('bash',str(present_pid));
+#            os.execlp('bash','bash',str(present_pid));
+
+@auth.requires_login()
+def cassandratomysql2():
+
+    #cassandra to csv file
+    print "lord Vamsi is going to transfer the data to cassandra......"
+    posvars=request.post_vars;
+    comm = """ cqlsh -e " copy hadoop."""+posvars['table']+""" to 'temp.csv' " """
+    print comm
+    result = os.popen(comm).read()
+
+    #csv file to mysql
+    quotes = """ " """
+    quotes = quotes.split()[0]
+    comm = "echo hadoop | sudo -S  mv temp.csv /var/lib/mysql/hadoop/.;  mysql --user=root --password=hadoop -e " +quotes+quotes+quotes+ """ LOAD DATA INFILE 'temp.csv' INTO TABLE hadoop.""" + posvars['targetdir'] +""" FIELDS TERMINATED BY ','; """ +quotes+quotes+quotes;
+    print comm
+    result = os.popen(comm).read();
